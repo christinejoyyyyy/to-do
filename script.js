@@ -51,4 +51,20 @@ function addTask() {
     listContainer.appendChild(li);
     inputBox.value = '';
     updateCounters();
+
+function updateCounters() {
+    const tasks = document.querySelectorAll('#list-container li');
+    let completed = 0;
+    let uncompleted = 0;
+    tasks.forEach(li => {
+        if (li.classList.contains('completed')) {
+            completed++;
+        } else {
+            uncompleted++;
+        }
+    });
+    completedCounter.textContent = completed;
+    uncompletedCounter.textContent = uncompleted;
+}
+
 }
